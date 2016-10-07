@@ -4,17 +4,15 @@ var todosService = require('../services/todoService');
 
 /* GET todos listing. */
 router.get('/', function(req, res) {
-	var todos = todosService.all(function(err, data) {
-		res.send(data.todos);
+	todosService.all(function(err, data) {
+		res.send(data);
 	});
 });
 
 router.post('/', function(req, res) {
 	var todo = req.body.todo;
 
-	todoService.save(todo, function(err) {
-		console.log('New todo saved: ' + todo);
-	});
+	todoService.save(todo, function(err) { 	});
 });
 
 module.exports = router;

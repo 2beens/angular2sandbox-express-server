@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs  = require('express-handlebars');
+var cors = require('cors');
 
 var routes = require('./routes/index');
 var users = require('./routes/user');
@@ -33,6 +34,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//https://github.com/expressjs/cors
+app.use(cors());
 
 app.use('/', routes);
 app.use('/users', users);
