@@ -1,16 +1,32 @@
 {
-	"todos": [
-		{
-			"title": "Lorem ipsum!!",
-			"text": "Lorem ipsum dolor sit amet, no pri euismod intellegat, rebum prompta mea cu. Nam ne mutat concludaturque, ex vix natum delicatissimi. Id clita constituto ius, an autem epicurei lucilius vis, vim vocibus mandamus consequuntur ne. Pro facer gubergren ut. Vel molestie deserunt cu, dicant alterum phaedrum vel ex.",
-			"priority": "Low",
-			"priorityColor": "Warning"
-		}, 
-		{
-			"title": "Take the beer days ticket!",
-			"text": "Hey, don't forget to go to the Technomania and take that ticket to beer days!!",
-			"priority": "High",
-			"priorityColor": "Warning"
-		}
-	]
+   "todos": [
+      {
+         "id": 1,
+         "title": "Beer",
+         "text": "Beer",
+         "priority": "Normal",
+         "priorityColor": "success"
+      },
+      {
+         "id": 2,
+         "title": "aaaaaa",
+         "text": "aaaa",
+         "priority": "Normal",
+         "priorityColor": "success"
+      },
+      {
+         "id": 3,
+         "title": "New Car",
+         "text": "Try not to forget to buy a new fuckin car!",
+         "priority": "High",
+         "priorityColor": "success"
+      },
+      {
+         "id": 4,
+         "title": "Learn Angular 2",
+         "text": "When you get home from work, rest, and try to read some Angular 2 learning material, it will come in handy with this new project!",
+         "priority": "Low",
+         "priorityColor": "success"
+      }
+   ]
 }

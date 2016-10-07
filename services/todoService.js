@@ -3,6 +3,7 @@ var todosDataFile = './data/todos.json';
 
 var todoService = {};
 
+var todosCount = 0;
 var todosDirty = true;
 var todosCache = [];
 
@@ -13,7 +14,7 @@ todoService.all = function(callback) {
 				console.log('Error occured whyle reading Todos JSON file:');
 				console.error(err);
 			} else {
-				var todosCount = data.todos.length;
+				todosCount = data.todos.length;
 				console.log('Getting all todos! Received todos: ' + todosCount);
 				todosCache = data.todos;
 				todosDirty = false;
@@ -26,13 +27,18 @@ todoService.all = function(callback) {
 }
 
 todoService.save = function(todo, callback) {
-	jsonfile.writeFile(todosDataFile, todo, {spaces: 3}, function (err) {
+	todo.id = ++todosCount;
+	var todosData = { todos: todosCache };
+	todosData.todos.push(todo);
+	
+	console.log('TodoService: trying to save todo: ' + todo);
+	jsonfile.writeFile(todosDataFile, todosData, {spaces: 3}, function (err) {
 		if(err === null || err === undefined) {
-			console.log('New Todo saved!');
+			console.log('New Todo saved! Id: ' + todo.id);
 			todosDirty = true;
 		}
 
-		callback(err);
+		callback(err, todo);
 	});
 }
 

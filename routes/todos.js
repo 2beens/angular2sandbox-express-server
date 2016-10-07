@@ -10,9 +10,15 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	var todo = req.body.todo;
+	var todo = req.body;
+	if(todo === null || todo === undefined) {
+		res.status(400).send('Received todo object is null/undefined!');
+		return;
+	}
 
-	todoService.save(todo, function(err) { 	});
+	todosService.save(todo, function(err, todo) { 
+		res.send(todo);
+	});
 });
 
 module.exports = router;
