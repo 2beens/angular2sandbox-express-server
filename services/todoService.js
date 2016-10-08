@@ -1,5 +1,6 @@
 var jsonfile = require('jsonfile');
 var todosDataFile = './data/todos.json';
+var logService = require('./logService');
 
 var todoService = {};
 
@@ -11,11 +12,11 @@ todoService.all = function(callback) {
 	if(todosDirty) {
 		jsonfile.readFile(todosDataFile, function(err, data) {
 			if(err !== null && err !== undefined) {
-				console.log('Error occured whyle reading Todos JSON file:');
-				console.error(err);
+				logService.log('Error occured whyle reading Todos JSON file:');
+				logService.err(err);
 			} else {
 				todosCount = data.todos.length;
-				console.log('Getting all todos! Received todos: ' + todosCount);
+				logService.log('Getting all todos! Received todos: ' + todosCount);
 				todosCache = data.todos;
 				todosDirty = false;
 			  	callback(err, todosCache);
@@ -31,10 +32,10 @@ todoService.save = function(todo, callback) {
 	var todosData = { todos: todosCache };
 	todosData.todos.push(todo);
 	
-	console.log('TodoService: trying to save todo: ' + todo);
+	logService.log('TodoService: trying to save todo: ' + todo);
 	jsonfile.writeFile(todosDataFile, todosData, {spaces: 3}, function (err) {
 		if(err === null || err === undefined) {
-			console.log('New Todo saved! Id: ' + todo.id);
+			logService.log('New Todo saved! Id: ' + todo.id);
 			todosDirty = true;
 		}
 
