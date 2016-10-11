@@ -5,28 +5,40 @@
          "title": "Beer",
          "text": "Beer",
          "priority": "Normal",
-         "priorityColor": "success"
+         "priorityColor": "warning",
+         "isFinished": true,
+         "createdAt": 1476185405940,
+         "finishedAt": 1476185663687
       },
       {
          "id": 2,
          "title": "aaaaaa",
          "text": "aaaa",
          "priority": "Normal",
-         "priorityColor": "success"
+         "priorityColor": "warning",
+         "isFinished": true,
+         "createdAt": 1476185405940,
+         "finishedAt": 1476186211790
       },
       {
          "id": 3,
          "title": "New Car",
          "text": "Try not to forget to buy a new fuckin car!",
          "priority": "High",
-         "priorityColor": "success"
+         "priorityColor": "success",
+         "isFinished": false,
+         "createdAt": 1476185405940,
+         "finishedAt": ""
       },
       {
          "id": 4,
          "title": "Learn Angular 2",
          "text": "When you get home from work, rest, and try to read some Angular 2 learning material, it will come in handy with this new project!",
          "priority": "Low",
-         "priorityColor": "success"
+         "priorityColor": "primary",
+         "isFinished": true,
+         "createdAt": 1476185405940,
+         "finishedAt": 1476185669453
       }
    ]
 }

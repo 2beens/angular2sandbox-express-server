@@ -11,13 +11,23 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
 	var todo = req.body;
-	if(todo === null || todo === undefined) {
-		res.status(400).send('Received todo object is null/undefined!');
-		return;
-	}
-
 	todosService.save(todo, function(err, todo) { 
-		res.send(todo);
+		if(err !== null && err !== undefined) {
+			res.status(400).send(err);
+		} else {
+			res.send(todo);
+		}
+	});
+});
+
+router.put('/', function(req, res) {
+	var todo = req.body;
+	todosService.update(todo, function(err, todo) {
+		if(err !== null && err !== undefined) {
+			res.status(400).send(err);
+		} else {
+			res.send(todo);
+		}
 	});
 });
 
